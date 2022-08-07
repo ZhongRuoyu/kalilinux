@@ -20,6 +20,8 @@ jobs:
             platforms: linux/amd64,linux/arm64
     runs-on: ubuntu-latest
     steps:
+      - name: Free up disk space
+        run: sudo rm -rf /usr/local/lib/android
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
       - name: Set up Docker Buildx

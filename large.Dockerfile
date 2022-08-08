@@ -6,6 +6,6 @@ RUN \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
         kali-linux-large && \
     apt-get autoremove -y && \
-    apt-get clean
+    rm -rf /var/lib/apt/lists/*
 
 WORKDIR /root

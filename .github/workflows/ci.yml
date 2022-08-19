@@ -13,10 +13,10 @@ jobs:
       matrix:
         target:
           - tags: zhongruoyu/kalilinux:latest,zhongruoyu/kalilinux:headless
-            file: headless.Dockerfile
+            file: Dockerfile.headless
             platforms: linux/amd64,linux/arm64
           - tags: zhongruoyu/kalilinux:large
-            file: large.Dockerfile
+            file: Dockerfile.large
             platforms: linux/amd64,linux/arm64
     runs-on: ubuntu-latest
     steps:

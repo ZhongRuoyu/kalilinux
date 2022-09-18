@@ -1,4 +1,4 @@
-name: ci
+name: docker
 
 on:
   push:
@@ -13,11 +13,11 @@ jobs:
       matrix:
         target:
           - tags: zhongruoyu/kalilinux:latest,zhongruoyu/kalilinux:headless
-            file: Dockerfile.headless
             platforms: linux/amd64,linux/arm64
+            file: headless.Dockerfile
           - tags: zhongruoyu/kalilinux:large
-            file: Dockerfile.large
             platforms: linux/amd64,linux/arm64
+            file: large.Dockerfile
     runs-on: ubuntu-latest
     steps:
       - name: Free up disk space
@@ -34,7 +34,7 @@ jobs:
       - name: Build and push Docker images
         uses: docker/build-push-action@v3
         with:
-          file: ${{ matrix.target.file }}
-          platforms: ${{ matrix.target.platforms }}
-          push: true
           tags: ${{ matrix.target.tags }}
+          platforms: ${{ matrix.target.platforms }}
+          file: ${{ matrix.target.file }}
+          push: true

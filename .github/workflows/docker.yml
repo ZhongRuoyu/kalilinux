@@ -25,10 +25,7 @@ jobs:
         run: |
           sudo rm -rf \
             /usr/local/lib/android \
-            /usr/share/dotnet \
-            /usr/share/swift \
-            /usr/lib/jvm \
-            /usr/local/share/powershell
+            /opt/hostedtoolcache
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
       - name: Set up Docker Buildx
